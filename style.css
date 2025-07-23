@@ -27,6 +27,11 @@ header h1 {
   color: #1e40af;
 }
 
+header p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
 main {
   display: flex;
   gap: 30px;
@@ -83,49 +88,251 @@ main {
   flex: 1;
   min-width: 300px;
   background: white;
-  padding: 30px;
+  position: relative;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* ==================== */
+/*   PLANTILLA 1: MODERNA - LÍNEA DE TIEMPO   */
+/* ==================== */
+
+.template-moderna {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: white;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
   position: relative;
 }
 
-.cv-header {
-  text-align: center;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #e2e8f0;
-  padding-bottom: 16px;
+.template-moderna .cv-header {
+  text-align: left;
+  border: none;
+  margin-bottom: 30px;
 }
 
-.cv-header h1 {
-  margin: 0;
-  font-size: 2rem;
+.template-moderna .cv-header h1 {
+  font-size: 2.8rem;
   color: #1e3a8a;
+  margin: 0;
+  font-weight: 700;
 }
 
-.subtitle {
+.template-moderna .subtitle {
+  font-size: 1.2rem;
+  color: #3b82f6;
+  margin: 4px 0 16px;
+}
+
+.template-moderna .cv-contact {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.template-moderna .cv-contact p {
+  margin: 0;
+  color: #475569;
+}
+
+.template-moderna .cv-section h2 {
+  font-size: 1.3rem;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+  position: relative;
+  display: inline-block;
+}
+
+.template-moderna .cv-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #3b82f6;
+}
+
+.template-moderna #preview-experiencia {
+  position: relative;
+  padding-left: 30px;
+  margin: 20px 0;
+}
+
+.template-moderna #preview-experiencia::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e2e8f0;
+  z-index: 0;
+}
+
+.template-moderna #preview-experiencia > div {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.template-moderna #preview-experiencia > div::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #3b82f6;
+  z-index: 1;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.template-moderna #preview-experiencia > div::after {
+  content: attr(data-role) ' @ ' attr(data-company);
+  font-weight: 600;
+  display: block;
+  margin-top: 4px;
+  color: #1e293b;
+}
+
+.template-moderna #preview-experiencia > div + div {
+  margin-top: 24px;
+}
+
+/* ==================== */
+/*   PLANTILLA 2: ELEGANTE - EDITORIAL   */
+/* ==================== */
+
+.template-elegante {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: white;
+  padding: 50px;
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.template-elegante .cv-header {
+  text-align: center;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.template-elegante .cv-header h1 {
+  font-size: 3.2rem;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.5px;
+  font-weight: 600;
+}
+
+.template-elegante .subtitle {
+  font-size: 1.3rem;
   color: #64748b;
+  font-style: italic;
+  margin: 8px 0 24px;
+}
+
+.template-elegante .cv-contact {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+.template-elegante .cv-contact p {
+  display: inline;
+  margin: 0 12px;
+  color: #475569;
+}
+
+.template-elegante .cv-contact p::before {
+  content: '•';
+  margin-right: 8px;
+  color: #94a3b8;
+}
+
+.template-elegante .cv-contact p:first-child::before {
+  content: '';
+}
+
+.template-elegante .cv-section h2 {
+  font-size: 1.4rem;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
   font-weight: 500;
 }
 
-.cv-contact p {
-  margin: 8px 0;
-  font-size: 14px;
+.template-elegante #preview-habilidades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
 }
 
-.cv-section {
-  margin: 24px 0;
+.template-elegante #preview-habilidades span {
+  background: #f1f5f9;
+  color: #334155;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.cv-section h2 {
+.template-elegante #preview-experiencia {
+  margin-top: 12px;
+  line-height: 1.8;
+}
+
+/* ==================== */
+/*   PLANTILLA 3: CARTA DE PRESENTACIÓN   */
+/* ==================== */
+
+.template-carta {
+  font-family: 'Georgia', serif;
+  background: white;
+  padding: 80px;
+  max-width: 800px;
+  margin: 40px auto;
+  border: 1px solid #f1f3f5;
+  line-height: 1.8;
+  color: #000;
+  font-size: 16px;
+}
+
+.template-carta .cv-header,
+.template-carta .cv-contact,
+.template-carta .cv-section {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.template-carta .cv-header h1 {
   font-size: 1.3rem;
-  color: #0f172a;
-  border-left: 4px solid #2563eb;
-  padding-left: 12px;
-  margin-bottom: 12px;
+  font-weight: normal;
+  margin-bottom: 4px;
 }
 
-#preview-experiencia, #preview-habilidades {
+.template-carta .subtitle {
+  font-style: italic;
+  color: #555;
+}
+
+.template-carta #preview-experiencia {
   white-space: pre-line;
-  font-size: 14px;
+  text-align: justify;
+  margin-top: 30px;
+}
+
+.template-carta #preview-habilidades {
+  display: none;
 }

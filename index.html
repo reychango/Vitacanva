@@ -16,12 +16,19 @@
     <main>
       <!-- Editor izquierdo -->
       <section class="editor">
+        <label><strong>Plantilla:</strong></label>
+        <select id="plantilla-select">
+          <option value="moderna">Moderna - Línea de tiempo</option>
+          <option value="elegante">Elegante - Editorial</option>
+          <option value="carta">Carta de Presentación</option>
+        </select>
+
         <h2>Editar CV</h2>
 
         <label>Nombre:</label>
         <input type="text" id="nombre" placeholder="Juan Pérez" />
 
-        <label>Profesión:</label>
+        <label>Profesión / Puesto:</label>
         <input type="text" id="profesion" placeholder="Desarrollador Frontend" />
 
         <label>Correo:</label>
@@ -34,13 +41,14 @@
         <input type="text" id="ubicacion" placeholder="Buenos Aires, Argentina" />
 
         <label>Color principal:</label>
-        <input type="color" id="color" value="#2563eb" />
+        <input type="color" id="color" value="#3b82f6" />
 
         <h3>Experiencia</h3>
-        <textarea id="experiencia" rows="5" placeholder="• Desarrollé aplicaciones con React...&#10;• Lideré equipo de 5 personas..."></textarea>
+        <textarea id="experiencia" rows="5" placeholder="Desarrollador en TechCorp (2020-2023)
+Product Manager en Innovatech (2018-2020)"></textarea>
 
-        <h3>Habilidades</h3>
-        <textarea id="habilidades" rows="4" placeholder="JavaScript, UX Design, Comunicación..."></textarea>
+        <h3>Habilidades (separadas por comas)</h3>
+        <textarea id="habilidades" rows="4" placeholder="JavaScript, React, UX Design, Comunicación, Liderazgo"></textarea>
 
         <button id="exportar-pdf">Exportar a PDF</button>
       </section>
@@ -71,7 +79,7 @@
     </main>
   </div>
 
-  <!-- Librería para PDF -->
+  <!-- Librería para exportar a PDF -->
   <script src="js/html2pdf.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
