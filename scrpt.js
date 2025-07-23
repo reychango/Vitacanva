@@ -27,7 +27,7 @@ const btnPdf = document.getElementById('exportar-pdf');
 
 // Función principal: actualizar vista previa
 function actualizarVista() {
-  // Actualizar texto normal
+  // Actualizar campos de texto
   preview.nombre.textContent = campos.nombre.value || "Tu Nombre";
   preview.profesion.textContent = campos.profesion.value || "Tu Profesión";
   preview.email.textContent = campos.email.value || "correo@ejemplo.com";
