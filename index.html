@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VitaCanvas - Crea tu CV</title>
+  <title>VitaCanvas - Generador de CV</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -14,15 +14,18 @@
     </header>
 
     <main>
-      <!-- Editor izquierdo -->
-      <section class="editor">
+      <!-- Selector de plantilla -->
+      <section class="template-selector">
         <label><strong>Plantilla:</strong></label>
         <select id="plantilla-select">
           <option value="moderna">Moderna - Línea de tiempo</option>
           <option value="elegante">Elegante - Editorial</option>
-          <option value="carta">Carta de Presentación</option>
+          <option value="creativa">Creativa - Minimalista</option>
         </select>
+      </section>
 
+      <!-- Editor izquierdo -->
+      <section class="editor">
         <h2>Editar CV</h2>
 
         <label>Nombre:</label>
@@ -44,11 +47,10 @@
         <input type="color" id="color" value="#3b82f6" />
 
         <h3>Experiencia</h3>
-        <textarea id="experiencia" rows="5" placeholder="Desarrollador en TechCorp (2020-2023)
-Product Manager en Innovatech (2018-2020)"></textarea>
+        <textarea id="experiencia" rows="5" placeholder="• Desarrollé aplicaciones con React...&#10;• Lideré equipo de 5 personas..."></textarea>
 
-        <h3>Habilidades (separadas por comas)</h3>
-        <textarea id="habilidades" rows="4" placeholder="JavaScript, React, UX Design, Comunicación, Liderazgo"></textarea>
+        <h3>Habilidades</h3>
+        <textarea id="habilidades" rows="4" placeholder="JavaScript, UX Design, Comunicación..."></textarea>
 
         <button id="exportar-pdf">Exportar a PDF</button>
       </section>

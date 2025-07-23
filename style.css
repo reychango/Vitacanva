@@ -116,14 +116,14 @@ main {
 
 .template-moderna .cv-header h1 {
   font-size: 2.8rem;
-  color: #1e3a8a;
+  color: var(--accent-color);
   margin: 0;
   font-weight: 700;
 }
 
 .template-moderna .subtitle {
   font-size: 1.2rem;
-  color: #3b82f6;
+  color: var(--accent-color);
   margin: 4px 0 16px;
 }
 
@@ -142,7 +142,7 @@ main {
 
 .template-moderna .cv-section h2 {
   font-size: 1.3rem;
-  color: #1e3a8a;
+  color: var(--accent-color);
   margin-bottom: 16px;
   position: relative;
   display: inline-block;
@@ -155,7 +155,7 @@ main {
   left: 0;
   width: 50px;
   height: 3px;
-  background: #3b82f6;
+  background: var(--accent-color);
 }
 
 .template-moderna #preview-experiencia {
@@ -188,9 +188,9 @@ main {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #3b82f6;
+  background: var(--accent-color);
   z-index: 1;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3);
 }
 
 .template-moderna #preview-experiencia > div::after {
@@ -203,136 +203,4 @@ main {
 
 .template-moderna #preview-experiencia > div + div {
   margin-top: 24px;
-}
-
-/* ==================== */
-/*   PLANTILLA 2: ELEGANTE - EDITORIAL   */
-/* ==================== */
-
-.template-elegante {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  background: white;
-  padding: 50px;
-  max-width: 900px;
-  margin: 0 auto;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.template-elegante .cv-header {
-  text-align: center;
-  border: none;
-  margin-bottom: 20px;
-}
-
-.template-elegante .cv-header h1 {
-  font-size: 3.2rem;
-  color: #1e293b;
-  margin: 0;
-  letter-spacing: -0.5px;
-  font-weight: 600;
-}
-
-.template-elegante .subtitle {
-  font-size: 1.3rem;
-  color: #64748b;
-  font-style: italic;
-  margin: 8px 0 24px;
-}
-
-.template-elegante .cv-contact {
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 15px;
-}
-
-.template-elegante .cv-contact p {
-  display: inline;
-  margin: 0 12px;
-  color: #475569;
-}
-
-.template-elegante .cv-contact p::before {
-  content: '•';
-  margin-right: 8px;
-  color: #94a3b8;
-}
-
-.template-elegante .cv-contact p:first-child::before {
-  content: '';
-}
-
-.template-elegante .cv-section h2 {
-  font-size: 1.4rem;
-  color: #1e293b;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-  font-weight: 500;
-}
-
-.template-elegante #preview-habilidades {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 8px;
-}
-
-.template-elegante #preview-habilidades span {
-  background: #f1f5f9;
-  color: #334155;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-.template-elegante #preview-experiencia {
-  margin-top: 12px;
-  line-height: 1.8;
-}
-
-/* ==================== */
-/*   PLANTILLA 3: CARTA DE PRESENTACIÓN   */
-/* ==================== */
-
-.template-carta {
-  font-family: 'Georgia', serif;
-  background: white;
-  padding: 80px;
-  max-width: 800px;
-  margin: 40px auto;
-  border: 1px solid #f1f3f5;
-  line-height: 1.8;
-  color: #000;
-  font-size: 16px;
-}
-
-.template-carta .cv-header,
-.template-carta .cv-contact,
-.template-carta .cv-section {
-  border: none;
-  margin: 0;
-  padding: 0;
-}
-
-.template-carta .cv-header h1 {
-  font-size: 1.3rem;
-  font-weight: normal;
-  margin-bottom: 4px;
-}
-
-.template-carta .subtitle {
-  font-style: italic;
-  color: #555;
-}
-
-.template-carta #preview-experiencia {
-  white-space: pre-line;
-  text-align: justify;
-  margin-top: 30px;
-}
-
-.template-carta #preview-habilidades {
-  display: none;
 }
