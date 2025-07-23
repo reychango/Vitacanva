@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VitaCanvas - Crea tu CV</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>VitaCanvas</h1>
+      <p>✨ Diseña un CV que destaque con estilo y profesionalismo</p>
+    </header>
+
+    <main>
+      <!-- Editor izquierdo -->
+      <section class="editor">
+        <h2>Editar CV</h2>
+
+        <label>Nombre:</label>
+        <input type="text" id="nombre" placeholder="Juan Pérez" />
+
+        <label>Profesión:</label>
+        <input type="text" id="profesion" placeholder="Desarrollador Frontend" />
+
+        <label>Correo:</label>
+        <input type="email" id="email" placeholder="juan@ejemplo.com" />
+
+        <label>Teléfono:</label>
+        <input type="tel" id="telefono" placeholder="+54 11 1234 5678" />
+
+        <label>Ubicación:</label>
+        <input type="text" id="ubicacion" placeholder="Buenos Aires, Argentina" />
+
+        <label>Color principal:</label>
+        <input type="color" id="color" value="#2563eb" />
+
+        <h3>Experiencia</h3>
+        <textarea id="experiencia" rows="5" placeholder="• Desarrollé aplicaciones con React...&#10;• Lideré equipo de 5 personas..."></textarea>
+
+        <h3>Habilidades</h3>
+        <textarea id="habilidades" rows="4" placeholder="JavaScript, UX Design, Comunicación..."></textarea>
+
+        <button id="exportar-pdf">Exportar a PDF</button>
+      </section>
+
+      <!-- Vista previa derecha -->
+      <section class="preview" id="cv-preview">
+        <div class="cv-header">
+          <h1 id="preview-nombre">Tu Nombre</h1>
+          <p id="preview-profesion" class="subtitle">Tu Profesión</p>
+        </div>
+
+        <div class="cv-contact">
+          <p><strong>✉️</strong> <span id="preview-email">correo@ejemplo.com</span></p>
+          <p><strong>📞</strong> <span id="preview-telefono">+00 0000 0000</span></p>
+          <p><strong>📍</strong> <span id="preview-ubicacion">Ciudad, País</span></p>
+        </div>
+
+        <div class="cv-section">
+          <h2>Experiencia Profesional</h2>
+          <div id="preview-experiencia">Agrega tu experiencia aquí...</div>
+        </div>
+
+        <div class="cv-section">
+          <h2>Habilidades</h2>
+          <div id="preview-habilidades">JavaScript • React • Diseño UX</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Librería para PDF -->
+  <script src="js/html2pdf.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
