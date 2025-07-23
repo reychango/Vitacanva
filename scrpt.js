@@ -27,98 +27,60 @@ const btnPdf = document.getElementById('exportar-pdf');
 
 // Función principal: actualizar vista previa
 function actualizarVista() {
-  // Actualizar campos de texto
+  // Actualizar texto normal
   preview.nombre.textContent = campos.nombre.value || "Tu Nombre";
   preview.profesion.textContent = campos.profesion.value || "Tu Profesión";
   preview.email.textContent = campos.email.value || "correo@ejemplo.com";
   preview.telefono.textContent = campos.telefono.value || "+00 0000 0000";
   preview.ubicacion.textContent = campos.ubicacion.value || "Ciudad, País";
 
-  // Formatear experiencia según plantilla
-  if (campos.experiencia.value.trim()) {
+  // Formatear experiencia como línea de tiempo (solo en plantilla moderna)
+  if (campos.experiencia.value) {
     const lines = campos.experiencia.value.trim().split('\n');
     const container = preview.experiencia;
     container.innerHTML = '';
 
     lines.forEach(line => {
-      const text = line.trim();
-      if (!text) return;
+      if (line.trim()) {
+        const match = line.match(/(.*) en (.*) \((.*)\)/i) ||
+                     line.match(/(.*) en (.*)/) ||
+                     [null, line, "Empresa no especificada", "Fecha"];
 
-      // Intentar extraer rol, empresa y fechas
-      const regex = /(.+?) en (.+?)(?: \((.+?)\))?/i;
-      const match = text.match(regex);
-
-      const div = document.createElement('div');
-      if (match && match[1] && match[2]) {
-        div.setAttribute('data-role', match[1].trim());
-        div.setAttribute('data-company', match[2].trim());
+        const div = document.createElement('div');
+        if (match[1]) div.setAttribute('data-role', match[1].trim());
+        if (match[2]) div.setAttribute('data-company', match[2].trim());
+        div.textContent = match[0] ? line : line.trim();
+        container.appendChild(div);
       }
-      div.textContent = text;
-      container.appendChild(div);
     });
   } else {
     preview.experiencia.textContent = "Agrega tu experiencia aquí...";
   }
 
-  // Formatear habilidades como etiquetas
-  if (campos.habilidades.value.trim()) {
-    const skills = campos.habilidades.value.split(',')
-      .map(s => s.trim())
-      .filter(s => s);
-    
+  // Habilidades como etiquetas
+  if (campos.habilidades.value) {
+    const skills = campos.habilidades.value.split(',').map(s => s.trim());
     preview.habilidades.innerHTML = '';
     skills.forEach(skill => {
       const span = document.createElement('span');
       span.textContent = skill;
       preview.habilidades.appendChild(span);
     });
-  } else {
-    preview.habilidades.innerHTML = 'JavaScript • Diseño • Comunicación';
   }
 
   // Aplicar color principal
   const color = campos.color.value;
   document.documentElement.style.setProperty('--accent-color', color);
 
-  // Refrescar estilos visuales si es necesario
-  if (plantillaSelect.value === 'moderna' || plantillaSelect.value === 'elegante') {
+  // Actualizar estilo en tiempo real
+  const template = plantillaSelect.value;
+  if (template === 'moderna' || template === 'elegante') {
     document.querySelector('.cv-header h1').style.color = color;
-    document.querySelectorAll('.cv-section h2').forEach(h2 => {
-      h2.style.color = color;
-    });
+    const h2s = document.querySelectorAll('.cv-section h2');
+    h2s.forEach(h2 => h2.style.color = color);
+    if (template === 'moderna') {
+      const before = document.querySelector('.cv-section h2::after') || {};
+      before.backgroundColor = color;
+    }
   }
 }
-
-// Escuchar cambios en los campos
-Object.values(campos).forEach(campo => {
-  campo.addEventListener('input', actualizarVista);
-});
-
-// Cambiar plantilla
-plantillaSelect.addEventListener('change', () => {
-  cvPreview.className = 'preview template-' + plantillaSelect.value;
-  actualizarVista();
-});
-
-// Cambiar color
-colorPicker.addEventListener('input', () => {
-  actualizarVista();
-});
-
-// Exportar a PDF
-btnPdf.addEventListener('click', () => {
-  const opt = {
-    margin: 0.8,
-    filename: plantillaSelect.value === 'carta' 
-      ? 'carta-presentacion.pdf' 
-      : 'curriculum.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
-    jsPDF: { unit: 'cm', format: 'a4', orientation: 'portrait' }
-  };
-
-  html2pdf().from(cvPreview).set(opt).save();
-});
-
-// Inicializar
-plantillaSelect.dispatchEvent(new Event('change'));
